@@ -1,0 +1,121 @@
+body{
+	font-family: Tahoma, Geneva, sans-serif;
+	background-color: #000;
+}
+#container {
+	width: 1000px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#login {
+	width: auto;
+	margin-left: auto;
+	margin-right: auto;
+	color: #fff;
+}
+
+input, textarea, select{
+	width:125px;
+	padding:3px;
+	background-color:#e1e1e1;
+	color:#454545;
+	border:0;
+	font-size:14px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px #000;
+}
+
+.submit {
+	width:auto;
+	padding:3px 15px;
+	background-image: url("../images/inputbg.png");
+	color:#dfdfdf;
+	border:0;
+	font-size:14px;
+	margin-top:0px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 2px #ccc;
+}
+
+.submit:hover {
+	background-image: url("../images/inputbg2.png");
+}
+
+#login form {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#store {
+	text-align: center;
+	border: 2px solid #333;
+	border-radius: 5px;
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image:url('../images/bg.gif');
+}
+
+.store_item {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	border: 2px solid #333;
+	border-radius: 5px;
+	clear: both;
+	height: 90px;
+}
+
+.store_item .icon {
+	width: 50px;
+	margin-top: auto;
+	margin-bottom: auto;
+	height: 50px;
+	border: 2px solid #666;
+	border-radius: 5px;
+	/*background-image: url('../images/default.gif');*/
+	background-color:#fff;
+	float: left;
+	margin-right: 10px;
+}
+.store_item .item_name {
+	float: right;
+	color: #C30;
+	font-size: 24px;
+	text-shadow: 2px 2px #000;
+}
+.store_item .buy{
+	width: 90px;
+	height: 35px;
+	background-image: url('../images/buy.gif');
+	float: right;
+	clear: right;
+	border: 2px solid #222;
+	border-radius: 5px;
+}
+.store_item .attributes ul {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	clear: right;
+	text-decoration: none;
+	list-style: none;
+}
+.store_item .attributes ul li{
+	color: #3FF;
+	font-size:16px;
+	text-shadow: 2px 2px #000;
+}
+.store_item .buy:hover{
+	background-image: url('../images/buy_hover.gif');
+}
+.store_item .item_cost {
+	color: #36C;
+	font-size: 22px;
+	text-align: right;
+	text-shadow: 2px 2px #000;
+	clear: right;
+}

@@ -1,6 +1,6 @@
 name: BattlegroundStore
 main: com.division.battlegrounds.store.core.BattlegroundsStore
-version: 1.0.1RB
+version: 1.0.2DR
 description: Implementation of the Battlegrounds API's token system.
 authors: [Mastershake71]
 depend: [Battlegrounds]

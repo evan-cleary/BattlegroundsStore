@@ -29,7 +29,7 @@ public class MySQLStore {
     public MySQLStore(Connection conn) {
         this.conn = conn;
         config = BattlegroundCore.getInstance().getBCConfig();
-        db = BattlegroundCore.getInstance().getDatabases();
+        db = BattlegroundCore.getInstance().getDataInterface();
     }
     
     public void setup() throws SQLException {

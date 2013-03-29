@@ -21,7 +21,7 @@ public class BattlegroundsStore extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        data = BattlegroundCore.getInstance().getDatabases();
+        data = BattlegroundCore.getInstance().getDataInterface();
         store = new MySQLStore(data.getRawConnection());
         try {
             store.setup();

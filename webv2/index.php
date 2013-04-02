@@ -13,17 +13,14 @@
 <script>
 $(document).ready(function(){
 	$("#tools").click(function(){
-		setMenu("tools_sub");
-		window.location.replace("filter.php?filter=1");		 
+		openMenu("tools_sub"); 
 	});
 	initiate();
 	$("#armor").click(function(){
-		setMenu("armor_sub");
-		window.location.replace("filter.php?filter=2");
+		openMenu("armor_sub");
 	});
 	$("#consumable").click(function(){
-		setMenu("consumable_sub");
-		window.location.replace("filter.php?filter=3");
+		openMenu("consumable_sub");
 	});
 	$("#clear").click(function(){
 		resetFilters();

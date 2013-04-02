@@ -198,16 +198,6 @@ body{
 	text-shadow: 2px 2px #000;
 }
 
-.store_item .buy{
-	width: 90px;
-	height: 35px;
-	background-image: url('../images/buy_dev.gif');
-	float: right;
-	clear: right;
-	border: 2px solid #222;
-	border-radius: 5px;
-}
-
 .store_item .attributes ul {
 	margin: 0px;
 	padding: 0px;
@@ -222,8 +212,18 @@ body{
 	text-shadow: 2px 2px #000;
 }
 
+.store_item .buy{
+	width: 90px;
+	height: 35px;
+	background-image: url('../images/buy.gif');
+	float: right;
+	clear: right;
+	border: 2px solid #222;
+	border-radius: 5px;
+}
+
 .store_item .buy:hover{
-	background-image: url('../images/buy_hover_dev.gif');
+	background-image: url('../images/buy_hover.gif');
 }
 
 .store_item .item_cost {

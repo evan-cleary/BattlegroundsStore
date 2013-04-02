@@ -6,10 +6,12 @@
 	if(!isset($_SESSION['user_id']) || !isset($_SESSION['authToken'])){
 		$_SESSION['error'] = "You are not logged in";
 		header("Location: index.php");
+		exit;
 	} else {
 		if(!compareAuthTokens($_SESSION['user_id'],$_SESSION['authToken'])){
 			$_SESSION['error'] = "Bad login. Please log in again.";
 			header("Location: index.php");
+			exit;
 		}
 	}
 	if(isset($_GET['item_id']) && isset($_GET['user_id'])){

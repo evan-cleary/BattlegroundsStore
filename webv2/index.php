@@ -32,6 +32,11 @@ $(document).ready(function(){
 	$("#login_button").click(function(){
 		$("#login_form").slideToggle();
 	});
+	<?php
+		if(isset($_SESSION['error'])){
+			echo "$(\"#notification\").fadeIn(1000).delay(3000).fadeOut(1000);";
+		}
+	?>
 });
 </script>
 </head>
@@ -117,7 +122,7 @@ $(document).ready(function(){
           </tr>
           <tr>
             <td align="right">Auth Code: </td>
-            <td><input type="text" name="authcode" /></td>
+            <td><input type="password" name="authcode" /></td>
           </tr>
           <tr>
             <td colspan="2" align="center"><input type="submit" class="submit" value="Sign In" name="login" /></td>
@@ -134,6 +139,19 @@ $(document).ready(function(){
       <?php include("./includes/store.php");?>
     </div>
   </div>
+  <?php
+  	if(isset($_SESSION['error'])){
+		echo "<div id=\"notification\">
+				<div class=\"errIc\">
+    				<img src=\"images/info.png\" alt=\"info\"/>
+    			</div>
+    			<div class=\"inner\">"
+    				.$_SESSION['error'].
+    			"</div>
+			</div>";
+		unset($_SESSION['error']);
+	}
+  ?>
 </div>
 </body>
 </html>

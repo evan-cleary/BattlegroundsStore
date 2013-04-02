@@ -8,27 +8,48 @@ function setCurrent(newCurrent){
 	$(".current").removeClass("current");
 	$("#"+newCurrent).addClass("current");
 	$.cookie("curFilter", newCurrent);
-	$.cookie("curMenu", $("#"+newCurrent).parent().parent().attr('id'));
+	$("#"+newCurrent).parent().parent().show();
 }
-
 
 function resetFilters(){
-	$.removeCookie("curMenu");
 	$.removeCookie("curFilter");
 }
 
-function setMenu(activeMenu){
+function openMenu(activeMenu){
 	$("#"+activeMenu).slideToggle();
-	$.cookie("curMenu", activeMenu);
-	$.removeCookie("curFilter");
+	if($.cookie("openMenus") == null){
+		$.cookie("openMenus",activeMenu+",");
+		return;
+	}
+	var menus = $.cookie("openMenus");
+	if(menus.indexOf(activeMenu)!= -1){
+		menus = menus.replace(activeMenu+",","");
+	} else{
+		menus+=activeMenu+",";
+	}
+	if(menus == ""){
+		$.removeCookie("openMenus");
+	} else{
+		$.cookie("openMenus",menus);
+	}
+}
+
+function restoreMenus(){
+	if($.cookie("openMenus") == null){
+		return;
+	}
+	var openMenus = $.cookie("openMenus").split(",");
+	for(var i=0;i<openMenus.length;i++){
+		$("#"+openMenus[i]).show();
+	}
 }
 
 function initiate(){
 	if($.cookie("curFilter") != null){
 		setCurrent($.cookie("curFilter"));
 	}
-	if($.cookie("curMenu") != null){
-		setMenu($.cookie("curMenu"));
+	if($.cookie("openMenus") != null){
+		restoreMenus();
 	}
 	$("#swords").click(function(){
 		setCurrent("swords");

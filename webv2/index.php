@@ -51,6 +51,9 @@ $(document).ready(function(){
         </li>
         <ul class="sub_main" id="tools_sub">
           <div class="sub">
+            <div class="inner" id="allTools">All Tools</div>
+          </div>
+          <div class="sub">
             <div class="inner" id="swords">Swords</div>
           </div>
           <div class="sub">
@@ -71,6 +74,9 @@ $(document).ready(function(){
         </li>
         <ul class="sub_main" id="armor_sub">
           <div class="sub">
+            <div class="inner" id="allArmor">All Armor</div>
+          </div>
+          <div class="sub">
             <div class="inner" id="boots">Boots</div>
           </div>
           <div class="sub">
@@ -87,6 +93,9 @@ $(document).ready(function(){
           <div class="inner">Consumables</div>
         </li>
         <ul class="sub_main" id="consumable_sub">
+          <div class="sub">
+            <div class="inner" id="allConsumables">All Consumables</div>
+          </div>
           <div class="sub">
             <div class="inner" id="food">Food</div>
           </div>

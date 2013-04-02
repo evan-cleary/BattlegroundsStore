@@ -51,6 +51,10 @@ function initiate(){
 	if($.cookie("openMenus") != null){
 		restoreMenus();
 	}
+	$("#allTools").click(function(){
+		setCurrent("allTools");
+		window.location.replace("filter.php?filter=1");
+	});
 	$("#swords").click(function(){
 		setCurrent("swords");
 		window.location.replace("filter.php?filter=10");
@@ -71,6 +75,10 @@ function initiate(){
 		setCurrent("hoes");
 		window.location.replace("filter.php?filter=14");
 	});
+	$("#allArmor").click(function(){
+		setCurrent("allArmor");
+		window.location.replace("filter.php?filter=2");
+	});
 	$("#boots").click(function(){
 		setCurrent("boots");
 		window.location.replace("filter.php?filter=20");
@@ -86,6 +94,10 @@ function initiate(){
 	$("#leggings").click(function(){
 		setCurrent("leggings");
 		window.location.replace("filter.php?filter=23");
+	});
+	$("#allConsumables").click(function(){
+		setCurrent("allConsumables");
+		window.location.replace("filter.php?filter=3");
 	});
 	$("#food").click(function(){
 		setCurrent("food");

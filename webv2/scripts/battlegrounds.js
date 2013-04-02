@@ -20,6 +20,7 @@ function resetFilters(){
 function setMenu(activeMenu){
 	$("#"+activeMenu).slideToggle();
 	$.cookie("curMenu", activeMenu);
+	$.removeCookie("curFilter");
 }
 
 function initiate(){

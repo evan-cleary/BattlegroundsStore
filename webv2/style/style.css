@@ -1,0 +1,264 @@
+body{
+	font-family: Tahoma, Geneva, sans-serif;
+	background-color: #000;
+}
+
+#container {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#left_col {
+	width: 25%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	background-color:#333;
+	height: 100%;
+	border-right: 1px solid #333;
+	min-width: 150px;
+	box-shadow: 1px 0px 5px #000;
+}
+
+#right_col{
+	width: 74%;
+	position: absolute;
+	top: 0px;
+	left: 26%;
+	height: 100%;
+	background-color:#333;
+	min-width: 500px;
+	z-index: -1;
+	overflow: auto;
+}
+
+#item_search {
+	position: relative;
+	/*border-bottom: 2px solid #000;*/
+	height: 32px;
+	color: #fff;
+	z-index: 2;
+	box-shadow: 0 1px 5px #000;
+}
+
+#item_search .srch {
+	width: 20%;
+	background-color:#444;
+	color: #000;
+	border: 0px;
+	height: 25px;
+	border-radius: 5px;
+	background-image: url("../images/inputbg.png");
+}
+
+#item_search .srch:hover{
+	background-image: url("../images/inputbg2.png");
+	background-color:#fff;
+}
+
+#item_search input[type=text] {
+	padding:3px;
+	margin-top: 5px;
+	margin-left: 3px;
+	width: 73%;
+	border-radius: 7px;
+	background-color:#444;
+	color: #fff;
+	border: 0;
+	box-shadow: inset 0px 0px 4px #000;
+}
+
+#filters ul {
+	list-style: none;
+	borders: 0;
+	margin: 0;
+	padding: 0;
+}
+
+#filters ul li {
+	position: relative;
+	cursor: pointer;
+	height: 45px;
+	color: #fff;
+	background-color:#444;
+	text-align: center;
+	margin-bottom: 2px solid #444;
+	box-shadow: 0 1px 5px #000;
+	z-index: 1;
+}
+
+#filters .sub_main{
+	display: none;
+	z-index: 0;
+}
+
+#filters .sub {
+	cursor: pointer;
+	height: 45px;
+	color: #fff;
+	background-color:#222;
+	text-align: center;
+	border-bottom: 1px solid #000;
+	z-index: 0;
+}
+#filters .sub:hover{
+	background-color: #111;
+}
+
+#filters .inner {
+	padding-top: 10px;
+	height: 45px;
+}
+
+#login {
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	color: #fff;
+	background-color:#222;
+	height: 35px;
+	box-shadow: 0px -1px 5px #000;
+}
+
+#login .half_inner{
+	float: left;
+	width: 48%;
+	padding-top: 8px;
+	height: 34px;
+	margin-left: 1%;
+	text-align: center;
+	margin-right: 1%;
+}
+
+#login .inner {
+	float: left;
+	width: 98%;
+	padding-top: 8px;
+	height: 34px;
+	text-align: center;
+	margin-right: 1%;
+	margin-left: 1%;
+}
+
+#login .clickable {
+	cursor: pointer;
+}
+
+#login .clickable:hover{
+	background-color: #444;
+}
+
+#login form {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#store {
+	text-align: center;
+	/*border: 2px solid #333;*/
+	border-radius: 5px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	/*background-image:url('../images/bg.gif');*/
+}
+
+.store_item {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	padding-bottom: 7px;
+	/*border: 2px solid #333;*/
+	border-radius: 5px;
+	clear: both;
+	height: 90px;
+	background-color: #222;
+}
+
+.store_item .icon {
+	width: 50px;
+	margin-top: auto;
+	margin-bottom: auto;
+	height: 50px;
+	border: 2px solid #666;
+	border-radius: 5px;
+	/*background-image: url('../images/default.gif');*/
+	background-color:#fff;
+	float: left;
+	margin-right: 10px;
+}
+
+.store_item .item_stats {
+	text-align: left;
+	float: left;
+	color: #C30;
+	font-size: 24px;
+	text-shadow: 2px 2px #000;
+}
+
+.store_item .buy{
+	width: 90px;
+	height: 35px;
+	background-image: url('../images/buy_dev.gif');
+	float: right;
+	clear: right;
+	border: 2px solid #222;
+	border-radius: 5px;
+}
+
+.store_item .attributes ul {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	clear: right;
+	text-decoration: none;
+	list-style: none;
+}
+.store_item .attributes ul li{
+	color: #3FF;
+	font-size:16px;
+	text-shadow: 2px 2px #000;
+}
+
+.store_item .buy:hover{
+	background-image: url('../images/buy_hover_dev.gif');
+}
+
+.store_item .item_cost {
+	color: #36C;
+	font-size: 22px;
+	text-align: right;
+	text-shadow: 2px 2px #000;
+	clear: right;
+}
+
+#login_form {
+	display: none;
+	position: absolute;
+	z-index: 5;
+	bottom: 35px;
+	left: 0;
+	color: #fff;
+	width: 49%;
+	height: 150px;
+	background-color: #222;
+	box-shadow: 1px -1px 5px #000;
+}
+
+#login_form  input[type=text] {
+	padding:3px;
+	margin-top: 5px;
+	margin-left: 3px;
+	width: 80%;
+	border-radius: 7px;
+	background-color:#444;
+	color: #fff;
+	border: 0;
+	box-shadow: inset 0px 0px 4px #000;
+}
+
+.current {
+	background-color:#069;
+}

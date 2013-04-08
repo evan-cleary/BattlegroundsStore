@@ -6,6 +6,8 @@
 	$shovels = array(269,273,256,284,277);
 	$swords = array(268,272,267,283,276);
 	$hoes = array(290,291,292,293,294);
+	$bow = array(261,262);
+	$weapons = array_merge($swords,$axes,$bow);
 	$tools = array_merge($axes,$picks,$shovels,$swords,$hoes);
 
 	//Armor Item Id's
@@ -44,6 +46,10 @@
 		if($filter_id == 14){
 			global $hoes;
 			return $hoes;
+		}
+		if($filter_id == 15){
+			global $weapons;
+			return $weapons;
 		}
 		if($filter_id == 2){
 			global $armor;

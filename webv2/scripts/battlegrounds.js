@@ -16,7 +16,11 @@ function resetFilters(){
 }
 
 function openMenu(activeMenu){
-	$("#"+activeMenu).slideToggle();
+	$("#"+activeMenu).slideToggle(function(){
+		var pane = $('#filters');
+		var api = pane.data('jsp');
+		api.reinitialise();
+	});
 	if($.cookie("openMenus") == null){
 		$.cookie("openMenus",activeMenu+",");
 		return;
@@ -42,6 +46,14 @@ function restoreMenus(){
 	for(var i=0;i<openMenus.length;i++){
 		$("#"+openMenus[i]).show();
 	}
+	$('#filters').jScrollPane({
+		horizontalGutter:0,
+		verticalGutter:2,
+		'showArrows': false
+	});
+	var pane = $('#filters');
+	var api = pane.data('jsp');
+	api.reinitialise();
 }
 
 function initiate(){
@@ -54,6 +66,10 @@ function initiate(){
 	$("#allTools").click(function(){
 		setCurrent("allTools");
 		window.location.replace("filter.php?filter=1");
+	});
+	$("#weapons").click(function(){
+		setCurrent("weapons");
+		window.location.replace("filter.php?filter=15");
 	});
 	$("#swords").click(function(){
 		setCurrent("swords");
@@ -110,4 +126,39 @@ function initiate(){
 	$("#signout").click(function(){
 		window.location.replace("logout.php");
 	});
+	$('#filters').each(
+		function()
+		{
+			$(this).jScrollPane(
+				{
+					showArrows: $(this).is('.arrow')
+				}
+			);
+			var api = $(this).data('jsp');
+			var throttleTimeout;
+			$(window).bind(
+				'resize',
+				function()
+				{
+					if ($.browser.msie) {
+						// IE fires multiple resize events while you are dragging the browser window which
+						// causes it to crash if you try to update the scrollpane on every one. So we need
+						// to throttle it to fire a maximum of once every 50 milliseconds...
+						if (!throttleTimeout) {
+							throttleTimeout = setTimeout(
+								function()
+								{
+									api.reinitialise();
+									throttleTimeout = null;
+								},
+								50
+							);
+						}
+					} else {
+						api.reinitialise();
+					}
+				}
+			);
+		}
+	);
 }

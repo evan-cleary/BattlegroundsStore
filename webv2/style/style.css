@@ -68,6 +68,18 @@ body{
 	box-shadow: inset 0px 0px 4px #000;
 }
 
+#filters {
+	overflow: auto;
+	/* Firefox */
+	height: -moz-calc(100% - 18px);
+	/* WebKit */
+	height: -webkit-calc(100% - 18px);
+	/* Opera */
+	height: -o-calc(100% - 18px);
+	/* Standard */
+	height: calc(100% - 70px);
+}
+
 #filters ul {
 	list-style: none;
 	borders: 0;
@@ -118,6 +130,7 @@ body{
 	background-color:#222;
 	height: 35px;
 	box-shadow: 0px -1px 5px #000;
+	z-index: 5;
 }
 
 #login .half_inner{

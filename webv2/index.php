@@ -7,11 +7,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Battlegrounds Store</title>
 <link href="./style/style.css" rel="stylesheet" type="text/css" />
+<!-- jScrollPane Style -->
+<link type="text/css" href="./style/jquery.jscrollpane.css" rel="stylesheet" media="all" />
 <script src="scripts/jquery-1.9.1.min.js"></script>
 <script src="scripts/jquery.cookie.js"></script>
 <script src="scripts/battlegrounds.js"></script>
+<!-- Needed to add features removed from jQuery for jScrollPane -->
+<script src="http://code.jquery.com/jquery-migrate-1.1.1.js"></script>
+<!-- jQuery MouseWheel Support -->
+<script type="text/javascript" src="scripts/jquery.mousewheel.js"></script>
+<!-- jScrollPane -->
+<script type="text/javascript" src="scripts/jquery.jscrollpane.min.js"></script>
 <script>
 $(document).ready(function(){
+	$('#filters').jScrollPane({
+		horizontalGutter:0,
+		verticalGutter:2,
+		'showArrows': false
+	});
 	$("#tools").click(function(){
 		openMenu("tools_sub"); 
 	});
@@ -57,6 +70,9 @@ $(document).ready(function(){
         <ul class="sub_main" id="tools_sub">
           <div class="sub">
             <div class="inner" id="allTools">All Tools</div>
+          </div>
+          <div class="sub">
+			<div class="inner" id="weapons">Weapons</div>
           </div>
           <div class="sub">
             <div class="inner" id="swords">Swords</div>
@@ -109,7 +125,7 @@ $(document).ready(function(){
           </div>
         </ul>
         <li id="clear">
-          <div class="inner" id="clear" >Clear Filters</div>
+          <div class="inner" id="clear">Clear Filters</div>
         </li>
       </ul>
     </div>
@@ -131,11 +147,13 @@ $(document).ready(function(){
       </form>
     </div>
     <div id="login">
+      <!-- Auto Generated DO NOT EDIT -->
       <?php include("./includes/login_frame.php");?>
     </div>
   </div>
   <div id="right_col">
     <div id="store">
+      <!-- Auto Generated DO NOT EDIT -->
       <?php include("./includes/store.php");?>
     </div>
   </div>

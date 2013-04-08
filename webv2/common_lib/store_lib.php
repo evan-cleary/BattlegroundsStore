@@ -10,7 +10,7 @@
 	$enc[5] = 'Respiration';
 	$enc[6] = 'Aqua Affinity';
 	$enc[7] = 'Thorns';
-	$enc[34] = 'unbreaking';
+	$enc[34] = 'Unbreaking';
 	$enc[16] = 'Sharpness';
 	$enc[17] = 'Smite';
 	$enc[18] = 'Bane of Arthropods';
@@ -24,6 +24,7 @@
 	$enc[49] = 'Punch';
 	$enc[50] = 'Flame';
 	$enc[51] = 'Infinity';
+	$enc[8262] = 'Night Vision';
 		// A function to return the Roman Numeral, given an integer
  	function numberToRoman($num) 
  	{

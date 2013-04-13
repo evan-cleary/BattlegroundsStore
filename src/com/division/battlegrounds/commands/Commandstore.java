@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
  * @author Evan
  */
 public class Commandstore extends BattlegroundsCommand {
-    
+
     @Override
     public void run(Player sender, String[] args) {
         MySQLStore store = BattlegroundsStore.getInstance().getStore();
@@ -23,6 +23,7 @@ public class Commandstore extends BattlegroundsCommand {
         }
         String subCmd = args[1];
         if (subCmd.equalsIgnoreCase("help")) {
+            sendHelp(sender);
         } else if (subCmd.equalsIgnoreCase("history")) {
             if (!sender.hasPermission("battlegrounds.store.history")) {
                 sender.sendMessage(String.format(BattlegroundCore.logFormat, "You do not have the required permissions."));
@@ -61,7 +62,7 @@ public class Commandstore extends BattlegroundsCommand {
                         sender.sendMessage(String.format(BattlegroundCore.logFormat, "Item has been added to the store."));
                     } else {
                         sender.sendMessage(String.format(BattlegroundCore.logFormat, "Unable to create new store item. Please contact database administrator."));
-                        
+
                     }
                 } else {
                     sender.sendMessage(String.format(BattlegroundCore.logFormat, "You must have the item you wish to add to the store in your hand."));
@@ -99,13 +100,27 @@ public class Commandstore extends BattlegroundsCommand {
                 sender.sendMessage(String.format(BattlegroundCore.logFormat, "You do not have the required permissions."));
                 return;
             }
-            
+
             byte[] secBytes = new byte[4];
             SecureRandom secRan = BattlegroundsStore.getSecure();
             secRan.nextBytes(secBytes);
             final String code = DatatypeConverter.printBase64Binary(secBytes).replace("==", "");
             sender.sendMessage(String.format(BattlegroundCore.logFormat, "You new store access code is: " + ChatColor.GOLD + code + ChatColor.RED + " (Case Sensative)"));
             store.updateAccessToken(sender.getName(), code);
+        } else {
+            sendHelp(sender);
         }
+    }
+
+    private void sendHelp(Player sender) {
+        String helpFormat = ChatColor.DARK_AQUA + "%s" + ChatColor.DARK_GRAY + " -- " + ChatColor.YELLOW + "%s";
+        sender.sendMessage(ChatColor.RED + "---------[" + ChatColor.GRAY + "Store Help" + ChatColor.RED + "]---------");
+        sender.sendMessage(ChatColor.RED + "Arguements in [] are optional and <> are required.");
+        sender.sendMessage(String.format(helpFormat, "/bg store access", "Generates a new access code for the store."));
+        sender.sendMessage(String.format(helpFormat, "/bg store add <price> [amount]", "Adds the item in hand to the store."));
+        sender.sendMessage(String.format(helpFormat, "/bg store claim <transaction_id>", "Retrieves your purchase by ID."));
+        sender.sendMessage(String.format(helpFormat, "/bg store history [page]", "Displays your purchase history."));
+        sender.sendMessage(String.format(helpFormat, "/bg store remove <store_id>", "Removes the store id from the store."));
+        sender.sendMessage(ChatColor.RED + "---------[" + ChatColor.GRAY + "Battlegrounds" + ChatColor.RED + "]---------");
     }
 }

@@ -105,7 +105,7 @@ public class Commandstore extends BattlegroundsCommand {
             SecureRandom secRan = BattlegroundsStore.getSecure();
             secRan.nextBytes(secBytes);
             final String code = DatatypeConverter.printBase64Binary(secBytes).replace("==", "");
-            BattlegroundCore.sendMessage(sender, "You new store access code is: " + ChatColor.GOLD + code + ChatColor.RED + " (Case Sensative)");
+            BattlegroundCore.sendMessage(sender, "Your new store access code is: " + ChatColor.GOLD + code + ChatColor.RED + " (Case Sensative)");
             store.updateAccessToken(sender.getName(), code);
         } else {
             sendHelp(sender);

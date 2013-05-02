@@ -18,7 +18,7 @@ public class Commandstore extends BattlegroundsCommand {
     public void run(Player sender, String[] args) {
         MySQLStore store = BattlegroundsStore.getInstance().getStore();
         if (args.length <= 1) {
-            sender.sendMessage(String.format(BattlegroundCore.logFormat, "Invalid Number of Arguements"));
+            BattlegroundCore.sendMessage(sender, "Invalid Number of Arguements");
             return;
         }
         String subCmd = args[1];
@@ -26,7 +26,7 @@ public class Commandstore extends BattlegroundsCommand {
             sendHelp(sender);
         } else if (subCmd.equalsIgnoreCase("history")) {
             if (!sender.hasPermission("battlegrounds.store.history")) {
-                sender.sendMessage(String.format(BattlegroundCore.logFormat, "You do not have the required permissions."));
+                BattlegroundCore.sendMessage(sender, "You do not have the required permissions.");
                 return;
             }
             int count = store.getHistoryCount(sender.getName());
@@ -47,7 +47,7 @@ public class Commandstore extends BattlegroundsCommand {
             sender.sendMessage(ChatColor.RED + "---------=[" + ChatColor.GRAY + "Page(" + page + "/" + (int) Math.ceil(count / 10.0) + ")" + ChatColor.RED + "]=---------");
         } else if (subCmd.equalsIgnoreCase("add")) {
             if (!sender.hasPermission("battlegrounds.store.add")) {
-                sender.sendMessage(String.format(BattlegroundCore.logFormat, "You do not have the required permissions."));
+                BattlegroundCore.sendMessage(sender, "You do not have the required permissions.");
                 return;
             }
             if (args.length >= 3) {
@@ -59,45 +59,45 @@ public class Commandstore extends BattlegroundsCommand {
                 if (sender.getItemInHand().getTypeId() != 0) {
                     boolean success = store.addItem(sender.getItemInHand(), price, amount);
                     if (success) {
-                        sender.sendMessage(String.format(BattlegroundCore.logFormat, "Item has been added to the store."));
+                        BattlegroundCore.sendMessage(sender, "Item has been added to the store.");
                     } else {
-                        sender.sendMessage(String.format(BattlegroundCore.logFormat, "Unable to create new store item. Please contact database administrator."));
+                        BattlegroundCore.sendMessage(sender, "Unable to create new store item. Please contact database administrator.");
 
                     }
                 } else {
-                    sender.sendMessage(String.format(BattlegroundCore.logFormat, "You must have the item you wish to add to the store in your hand."));
+                    BattlegroundCore.sendMessage(sender, "You must have the item you wish to add to the store in your hand.");
                 }
             }
         } else if (subCmd.equalsIgnoreCase("remove")) {
             if (!sender.hasPermission("battlegrounds.store.remove")) {
-                sender.sendMessage(String.format(BattlegroundCore.logFormat, "You do not have the required permissions."));
+                BattlegroundCore.sendMessage(sender, "You do not have the required permissions.");
                 return;
             }
             if (args.length == 3) {
                 int store_id = Integer.parseInt(args[2]);
                 boolean success = store.removeItem(store_id);
                 if (success) {
-                    sender.sendMessage(String.format(BattlegroundCore.logFormat, "Store item " + args[2] + " has been removed."));
+                    BattlegroundCore.sendMessage(sender, "Store item " + args[2] + " has been removed.");
                 } else {
-                    sender.sendMessage(String.format(BattlegroundCore.logFormat, "Unable to remove store item " + args[2] + ". Please contact database administrator."));
+                    BattlegroundCore.sendMessage(sender, "Unable to remove store item " + args[2] + ". Please contact database administrator.");
                 }
             }
         } else if (subCmd.equalsIgnoreCase("claim")) {
             if (!sender.hasPermission("battlegrounds.store.claim")) {
-                sender.sendMessage(String.format(BattlegroundCore.logFormat, "You do not have the required permissions."));
+                BattlegroundCore.sendMessage(sender, "You do not have the required permissions.");
                 return;
             }
             if (args.length == 3) {
                 int transaction_id = Integer.parseInt(args[2]);
                 if (store.deliverItem(transaction_id, sender)) {
-                    sender.sendMessage(String.format(BattlegroundCore.logFormat, "Your item has been successfully delivered."));
+                    BattlegroundCore.sendMessage(sender, "Your item has been successfully delivered.");
                 }
             } else {
-                sender.sendMessage(String.format(BattlegroundCore.logFormat, "Incorrect number of arguements."));
+                BattlegroundCore.sendMessage(sender, "Incorrect number of arguements.");
             }
         } else if (subCmd.equalsIgnoreCase("access")) {
             if (!sender.hasPermission("battlegrounds.store.access")) {
-                sender.sendMessage(String.format(BattlegroundCore.logFormat, "You do not have the required permissions."));
+                BattlegroundCore.sendMessage(sender, "You do not have the required permissions.");
                 return;
             }
 
@@ -105,7 +105,7 @@ public class Commandstore extends BattlegroundsCommand {
             SecureRandom secRan = BattlegroundsStore.getSecure();
             secRan.nextBytes(secBytes);
             final String code = DatatypeConverter.printBase64Binary(secBytes).replace("==", "");
-            sender.sendMessage(String.format(BattlegroundCore.logFormat, "You new store access code is: " + ChatColor.GOLD + code + ChatColor.RED + " (Case Sensative)"));
+            BattlegroundCore.sendMessage(sender, "You new store access code is: " + ChatColor.GOLD + code + ChatColor.RED + " (Case Sensative)");
             store.updateAccessToken(sender.getName(), code);
         } else {
             sendHelp(sender);
